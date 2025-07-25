@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b6bff;
+            --text: #e5e5f7;
+            --bg-dark: #050518;
+            --bg-light: #0a0f2c;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(ellipse at bottom, var(--bg-light) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .projects-container {
+            width: 100%;
+            max-width: 900px;
+            padding: 2rem;
+            margin: 4rem auto;
+        }
+
+        .projects-heading {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .projects-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(20, 25, 60, 0.3);
+            border-radius: 15px;
+            padding: 1.8rem;
+            border: 1px solid rgba(167, 179, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(110, 123, 255, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(167, 179, 255, 0.1);
+        }
+
+        .project-title {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+        }
+
+        .project-features li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .project-features li::before {
+            content: '✦';
+            position: absolute;
+            left: -1.2rem;
+            color: var(--primary);
+        }
+
+        .demo-btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .projects-heading {
+                font-size: 2.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="projects-container">
+        <h1 class="projects-heading">Project Showcase</h1>
+        
+        <div class="projects-grid">
+            <!-- Calculator Project -->
+            <div class="project-card">
+                <h3 class="project-title">Prime Calculator</h3>
+                <p class="project-description">
+                    A sleek, space-themed calculator with advanced functionality.
+                    Designed for both basic and complex calculations.
+                </p>
+                <ul class="project-features">
+                    <li>Dark mode interface</li>
+                    <li>Memory functions</li>
+                    <li>Responsive design</li>
+                </ul>
+                <a href="https://calculatorx28.netlify.app/" target="_blank" class="demo-btn">Live Demo</a>
+            </div>
+            
+            <!-- Website Project -->
+            <div class="project-card">
+                <h3 class="project-title">Tamatar- Food Online</h3>
+                <p class="project-description">
+                    My prototype of a food-delivery website .
+                </p>
+                <ul class="project-features">
+                    <li>Interactive design</li>
+                    <li>Skills showcase</li>
+                    <li>Mobile-friendly</li>
+                </ul>
+                <a href="https://tomato-food-onlinee-ahem.netlify.app/" target="_blank" class="demo-btn">View Website</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

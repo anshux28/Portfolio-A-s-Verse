@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Added for better compatibility -->
+    <title>Contact Me</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(ellipse at bottom, #0a0f2c 0%, #050518 100%);
+            color: #e5e5f7;
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            margin: 2rem;
+        }
+
+        .contact-heading {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .contact-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(167, 179, 255, 0.8), transparent);
+            border-radius: 2px;
+        }
+
+        .contact-form {
+            background: rgba(20, 25, 60, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(167, 179, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #d8dbff;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(20, 25, 60, 0.5);
+            border: 1px solid rgba(167, 179, 255, 0.2);
+            border-radius: 8px;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: rgba(167, 179, 255, 0.6);
+            box-shadow: 0 0 0 2px rgba(167, 179, 255, 0.2);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #6e7bff 0%, #8b6bff 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(110, 123, 255, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(110, 123, 255, 0.4);
+        }
+
+        .status-message {
+            text-align: center;
+            margin-top: 1rem;
+            min-height: 24px;
+            color: #b6b9ff;
+        }
+        
+        .email-fallback {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: rgba(20, 25, 60, 0.5);
+            border-radius: 5px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h1 class="contact-heading">Get In Touch?</h1>
+        
+        <form id="emailForm" class="contact-form">
+            <div class="form-group">
+                <label for="name" class="form-label">Your Name</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="form-label">Your Email</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message" class="form-label">Your Message</label>
+                <textarea id="message" name="message" class="form-textarea" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Send Message</button>
+            <div id="status" class="status-message"></div>
+            <div id="emailFallback" class="email-fallback" style="display: none;">
+                If email  didn't open, you can send it to: <strong>a28page@gmail.com</strong>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const status = document.getElementById('status');
+            const fallback = document.getElementById('emailFallback');
+            status.textContent = "Preparing your message...";
+            status.style.color = "#b6b9ff";
+            fallback.style.display = "none";
+            
+            try {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Create mailto link with your email
+                const mailtoLink = `mailto:a28page@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                    `From: ${name} (${email})\n\n${message}`
+                )}`;
+                
+                // Try to open email client
+                setTimeout(() => {
+                    window.location.href = mailtoLink;
+                    status.textContent = "Opening your email client...";
+                    
+                    // Show fallback if email client doesn't open
+                    setTimeout(() => {
+                        if (!document.hidden) {
+                            status.textContent = "Could not open email client automatically";
+                            status.style.color = "#ffa1a1";
+                            fallback.style.display = "block";
+                            
+                            // Copy email to clipboard
+                            navigator.clipboard?.writeText("a28page@gmail.com").then(() => {
+                                status.textContent += " (Email copied to clipboard!)";
+                            });
+                        }
+                    }, 2000);
+                }, 300);
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    document.getElementById('emailForm').reset();
+                    status.textContent = "Ready to send another message";
+                    status.style.color = "#b6b9ff";
+                }, 5000);
+                
+            } catch (error) {
+                status.textContent = "Error: " + error.message;
+                status.style.color = "#ff6b6b";
+                console.error("Form error:", error);
+            }
+        });
+    </script>
+</body>
+</html>

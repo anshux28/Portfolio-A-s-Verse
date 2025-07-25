@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Stellar Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Outfit:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b95c9;
+            --secondary: #a68bff;
+            --text: #e8e8f2;
+            --bg-dark: #0a0b18;
+            --bg-light: #1a1c3a;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(ellipse at bottom, var(--bg-light) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .about-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            margin: 4rem auto;
+            position: relative;
+        }
+
+        /* CLASSY HEADING */
+        .about-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-align: center;
+            margin: 0 0 3rem;
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .about-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            border-radius: 2px;
+        }
+
+        /* ELEGANT PROFILE IMAGE */
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            margin: 0 auto 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 3px solid rgba(139, 149, 201, 0.4);
+            box-shadow: 
+                0 0 30px rgba(139, 149, 201, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.98) contrast(1.05);
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, transparent 60%, rgba(139, 149, 201, 0.1) 100%);
+            z-index: 1;
+        }
+
+        /* SOPHISTICATED CONTENT */
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text);
+            position: relative;
+            padding: 2.5rem;
+            background: rgba(26, 28, 58, 0.5);
+            border-radius: 12px;
+            border: 1px solid rgba(139, 149, 201, 0.2);
+            margin-top: 1rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 400;
+            font-style: italic;
+            position: relative;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .highlight:hover::after {
+            opacity: 1;
+        }
+
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-top: 2.5rem;
+            text-align: right;
+            color: var(--primary);
+            font-style: italic;
+            position: relative;
+        }
+
+        .signature::before {
+            content: '—';
+            position: absolute;
+            left: -30px;
+        }
+
+        /* SUBTLE CODE PARTICLES */
+        .code-particle {
+            position: absolute;
+            color: rgba(139, 149, 201, 0.08);
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            z-index: -1;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .about-heading {
+                font-size: 2.5rem;
+            }
+            
+            .profile-image {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .about-text {
+                padding: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <div class="profile-section">
+            <div class="profile-image">
+                <!-- Replace with your image -->
+                <img src="me again.jpg" alt="Your Name">
+            </div>
+        </div>
+        
+        <h1 class="about-heading">Mee- Cosmic Coder</h1>
+        
+        <div class="about-text">
+            <p>
+                <span class="highlight">I'm a newbie web developer.</span> Well—how still a newbie? 
+                Because code evolves daily, and each dawn brings fresh paradigms. 
+                Even decades in, the learning never ceases... and that's the beauty .
+            </p>
+            
+            <p>
+                A curious mind drives my enthusiasm for coding, blending logic with creativity. 
+                From design to implementation, <span class="highlight">I craft with my curosity.</span>
+            </p>
+            
+            <p>
+                Building my <span class="highlight">virtual Galaxy</span>—one 
+                <span class="highlight">elegant system</span> of Mine.
+            </p>
+            
+            <div class="signature">The Anshu</div>
+        </div>
+    </div>
+
+    <script>
+        // Minimal code particles
+        function createCodeParticles() {
+            const chars = ['{}', '()', '=>', 'const', 'function', 'return'];
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.className = 'code-particle';
+                p.textContent = chars[Math.floor(Math.random() * chars.length)];
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.top = Math.random() * 100 + 'vh';
+                p.style.opacity = Math.random() * 0.1 + 0.05;
+                p.style.animation = `float ${Math.random() * 30 + 20}s linear infinite`;
+                p.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(p);
+            }
+        }
+
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                @keyframes float {
+                    to { transform: translateY(-100vh) translateX(${Math.random() * 100 - 50}px); }
+                }
+            </style>
+        `);
+        
+        createCodeParticles();
+    </script>
+</body>
+</html>

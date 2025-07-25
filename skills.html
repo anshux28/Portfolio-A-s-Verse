@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Multidimensional Skills</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b6bff;
+            --secondary: #6e7bff;
+            --accent: #ff6bd6;
+            --text: #e5e5f7;
+            --bg-dark: #050518;
+            --bg-light: #0a0f2c;
+            --writing: #6bd6ff;
+            --editing: #ffb46b;
+            --singing: #ff6b6b;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(ellipse at bottom, var(--bg-light) 0%, var(--bg-dark) 100%);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .skills-container {
+            width: 100%;
+            max-width: 900px;
+            padding: 2rem;
+            margin: 4rem auto;
+        }
+
+        .skills-heading {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .skills-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            border-radius: 3px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: rgba(20, 25, 60, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(167, 179, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(110, 123, 255, 0.2);
+            border-color: rgba(167, 179, 255, 0.4);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.1);
+            color: var(--accent);
+        }
+
+        .skill-title {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .skill-description {
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--text);
+            text-align: center;
+        }
+
+        /* Unique decorations for each skill */
+        .coding::before {
+            background: radial-gradient(circle, rgba(110, 123, 255, 0.1) 0%, transparent 70%);
+        }
+        .debate::before {
+            background: radial-gradient(circle, rgba(255, 107, 214, 0.1) 0%, transparent 70%);
+        }
+        .communication::before {
+            background: radial-gradient(circle, rgba(107, 255, 206, 0.1) 0%, transparent 70%);
+        }
+        .sketching::before {
+            background: radial-gradient(circle, rgba(255, 206, 107, 0.1) 0%, transparent 70%);
+        }
+        .dancing::before {
+            background: radial-gradient(circle, rgba(206, 107, 255, 0.1) 0%, transparent 70%);
+        }
+        .painting::before {
+            background: radial-gradient(circle, rgba(107, 214, 255, 0.1) 0%, transparent 70%);
+        }
+        .writing::before {
+            background: radial-gradient(circle, rgba(107, 214, 255, 0.15) 0%, transparent 70%);
+        }
+        .editing::before {
+            background: radial-gradient(circle, rgba(255, 180, 107, 0.15) 0%, transparent 70%);
+        }
+        .singing::before {
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .skill-card:hover::before {
+            opacity: 0.5;
+        }
+
+        /* Custom icon colors */
+        .writing .skill-icon { color: var(--writing); }
+        .editing .skill-icon { color: var(--editing); }
+        .singing .skill-icon { color: var(--singing); }
+
+        @media (max-width: 768px) {
+            .skills-heading {
+                font-size: 2.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="skills-container">
+        <h1 class="skills-heading">Jack Of Trades</h1>
+        
+        <div class="skills-grid">
+            <!-- Coding -->
+            <div class="skill-card coding">
+                <div class="skill-icon">💻</div>
+                <h3 class="skill-title">Coding</h3>
+                <p class="skill-description">
+                    Building digital worlds with clean, efficient code. 
+                    From websites to algorithms, I speak the language of machines.
+                </p>
+            </div>
+            
+            <!-- Debate -->
+            <div class="skill-card debate">
+                <div class="skill-icon">🗣️</div>
+                <h3 class="skill-title">Debate</h3>
+                <p class="skill-description">
+                    Constructing compelling arguments and dismantling weak logic. 
+                    A wordsmith in the arena of ideas.
+                </p>
+            </div>
+            
+            <!-- Communication -->
+            <div class="skill-card communication">
+                <div class="skill-icon">📢</div>
+                <h3 class="skill-title">Communication</h3>
+                <p class="skill-description">
+                    Bridging gaps between technical and non-technical minds. 
+                    Clear, persuasive, and adaptable to any audience.
+                </p>
+            </div>
+            
+            <!-- Sketching -->
+            <div class="skill-card sketching">
+                <div class="skill-icon">✏️</div>
+                <h3 class="skill-title">Sketching</h3>
+                <p class="skill-description">
+                    Translating imagination to paper with precise lines. 
+                    Visual thinking is my second language.
+                </p>
+            </div>
+            
+            <!-- Dancing -->
+            <div class="skill-card dancing">
+                <div class="skill-icon">💃</div>
+                <h3 class="skill-title">Dancing</h3>
+                <p class="skill-description">
+                    Physical poetry in motion. 
+                    Expressing emotions through rhythm and movement.
+                </p>
+            </div>
+            
+            <!-- Painting -->
+            <div class="skill-card painting">
+                <div class="skill-icon">🎨</div>
+                <h3 class="skill-title">Painting</h3>
+                <p class="skill-description">
+                    Creating vibrant worlds with color and texture. 
+                    Where emotions meet canvas.
+                </p>
+            </div>
+            
+            <!-- Writing -->
+            <div class="skill-card writing">
+                <div class="skill-icon">✍️</div>
+                <h3 class="skill-title">Writing</h3>
+                <p class="skill-description">
+                    Crafting narratives that captivate. Whether technical docs or creative prose, 
+                    I shape words with precision and flair.
+                </p>
+            </div>
+            
+            <!-- Editing -->
+            <div class="skill-card editing">
+                <div class="skill-icon">🔍</div>
+                <h3 class="skill-title">Editing</h3>
+                <p class="skill-description">
+                    Polishing content to perfection. A keen eye for detail ensures clarity, 
+                    coherence, and impact in every piece.
+                </p>
+            </div>
+            
+            <!-- Singing -->
+            <div class="skill-card singing">
+                <div class="skill-icon">🎤</div>
+                <h3 class="skill-title">Singing</h3>
+                <p class="skill-description">
+                    Giving voice to emotions through melody. 
+                    From soulful ballads to energetic performances, 
+                    I express what words alone cannot.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

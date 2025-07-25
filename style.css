@@ -1,0 +1,243 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* Blue galaxy background */
+  color: #ffffff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(16px);
+  background: rgba(10, 20, 40, 0.3); /* Soft bluish glass */
+  border-bottom: 1px solid rgba(100, 160, 255, 0.12);
+}
+
+.nav-link {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  color: #cdd9f1;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(120, 180, 255, 0.2);
+  background: rgba(100, 150, 255, 0.06);
+  transition: all 0.4s ease;
+}
+
+.nav-link:hover {
+  background: rgba(80, 130, 255, 0.12);
+  color: #a5cbff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px rgba(100, 180, 255, 0.4), inset 0 0 4px rgba(255, 255, 255, 0.08);
+  border-color: rgba(130, 200, 255, 0.4);
+}
+.links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.link a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.link a:hover {
+  background-color: #00bfff;
+  color: #000;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+.image img {
+  width: 360px;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 50% / 40%;
+  border: 5px solid #00bcd4;
+  box-shadow: 0 0 25px rgba(0, 188, 212, 0.6);
+  margin-top: -25px; /* 👈 This moves it slightly up */
+}
+
+.content {
+  max-width: 550px;
+  color: #f0f8ff;
+}
+
+.content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.content span {
+  color: #00bfff;
+}
+
+.typewriter {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+#typewriter-text {
+  border-right: 2px solid #00bfff;
+  padding-left: 6px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: blinkCursor 0.75s step-end infinite;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+@keyframes blinkCursor {
+  from, to { border-color: transparent }
+  50% { border-color: #00bfff; }
+}
+
+.content p {
+  line-height: 1.6;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #dcefff;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.social-links a {
+    font-size: 26px;
+    color: #00f0ff;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    padding: 14px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+.social-links a:hover {
+    color: #000;
+    background: #00f0ff;
+    transform: scale(1.25) rotate(8deg);
+    box-shadow: 0 0 25px #00f0ff, 0 0 40px #00f0ff80;
+    border: 1px solid #ffffff30;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+.explore-button {
+  margin-top: 30px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-family: 'Orbitron', sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #2193b0, #6dd5ed); /* Bluish gradient */
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  letter-spacing: 1px;
+}
+
+.explore-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.9);
+}
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .image img {
+    max-width: 80%;
+    margin-top: 30px;
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+.brand-tagline {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  color: #aee0ff;
+  letter-spacing: 2px;
+  position: absolute;
+  top: 70px;      /* adjust as needed based on nav */
+  left: 40px;
+  text-shadow: 0 0 6px rgba(180, 220, 255, 0.4);
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.brand-tagline:hover {
+  transform: scale(1.05);
+  opacity: 1;
+  text-shadow: 0 0 12px rgba(140, 200, 255, 0.6);
+}
+.navbar {
+  position: relative; /* Required to position A's Galaxy inside it */
+}
+
+.galaxy-container {
+  position: relative;
+  height: 70px;
+}
+
+.galaxy-title {
+  display: block;
+  padding-left: 25px; /* Optional: adds a tiny inner space from edge */
+  margin-top: 12px;   /* Moves it just below navbar */
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #aee7ff;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 6px #4ecfff, 0 0 12px #3bb3e4;
+  animation: glowText 3s ease-in-out infinite alternate;
+  text-align: left;  /* makes sure it's aligned left */
+}
+
+/* Glow animation */
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 4px #4ecfff, 0 0 8px #3bb3e4;
+  }
+  to {
+    text-shadow: 0 0 10px #4ecfff, 0 0 20px #3bb3e4;
+  }
+}
+

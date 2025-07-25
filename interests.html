@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Interests</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --astronomy-glow: rgba(144, 164, 255, 0.15);
+            --music-glow: rgba(220, 144, 255, 0.15);
+            --psychology-glow: rgba(255, 144, 220, 0.15);
+            --science-glow: rgba(144, 255, 200, 0.15);
+            --tech-glow: rgba(255, 200, 144, 0.15);
+            --discovery-glow: rgba(144, 220, 255, 0.15);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(ellipse at bottom, #0a0f2c 0%, #050518 100%);
+            color: #e5e5f7;
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .interests-container {
+            width: 100%;
+            max-width: 900px;
+            padding: 2rem;
+            margin: 2rem auto;
+        }
+
+        .interests-heading {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .interests-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(167, 179, 255, 0.8), transparent);
+            border-radius: 3px;
+        }
+
+        .interest-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .interest-card {
+            background: rgba(20, 25, 60, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(167, 179, 255, 0.2);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(96, 119, 255, 0.3);
+        }
+
+        .interest-icon {
+            font-size: 3.5rem;
+            min-width: 80px;
+            color: #c7c9ff;
+            margin-right: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .interest-card:hover .interest-icon {
+            transform: scale(1.1);
+        }
+
+        .interest-content {
+            flex: 1;
+        }
+
+        .interest-title {
+            font-family: 'Bai Jamjuree', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .interest-description {
+            font-weight: 300;
+            line-height: 1.8;
+            color: #d8dbff;
+        }
+
+        /* Unique glows for each card */
+        .astronomy-card {
+            border-left: 4px solid #6e7bff;
+        }
+        .astronomy-card::before {
+            background: radial-gradient(circle, var(--astronomy-glow) 0%, transparent 70%);
+        }
+
+        .music-card {
+            border-left: 4px solid #b46bff;
+        }
+        .music-card::before {
+            background: radial-gradient(circle, var(--music-glow) 0%, transparent 70%);
+        }
+
+        .psychology-card {
+            border-left: 4px solid #ff6bd6;
+        }
+        .psychology-card::before {
+            background: radial-gradient(circle, var(--psychology-glow) 0%, transparent 70%);
+        }
+
+        .science-card {
+            border-left: 4px solid #4dffc3;
+        }
+        .science-card::before {
+            background: radial-gradient(circle, var(--science-glow) 0%, transparent 70%);
+        }
+
+        .tech-card {
+            border-left: 4px solid #ffb04d;
+        }
+        .tech-card::before {
+            background: radial-gradient(circle, var(--tech-glow) 0%, transparent 70%);
+        }
+
+        .discovery-card {
+            border-left: 4px solid #4dc9ff;
+        }
+        .discovery-card::before {
+            background: radial-gradient(circle, var(--discovery-glow) 0%, transparent 70%);
+        }
+
+        /* Glow positioning */
+        .interest-card::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .interest-card:hover::before {
+            opacity: 1;
+        }
+
+        .astronomy-card::before { top: -50px; right: -50px; }
+        .music-card::before { bottom: -50px; left: -50px; }
+        .psychology-card::before { top: -50px; left: -50px; }
+        .science-card::before { bottom: -50px; right: -50px; }
+        .tech-card::before { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .discovery-card::before { top: 0; right: 0; bottom: 0; left: 0; margin: auto; }
+
+        @media (max-width: 768px) {
+            .interests-heading {
+                font-size: 2.5rem;
+            }
+            .interest-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .interest-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="interests-container">
+        <h1 class="interests-heading">My Interests</h1>
+        
+        <div class="interest-cards">
+            <!-- 1. Astronomy -->
+            <div class="interest-card astronomy-card">
+                <div class="interest-icon">🌌</div>
+                <div class="interest-content">
+                    <h3 class="interest-title">Astronomy</h3>
+                    <p class="interest-description">
+                        Exploring cosmic wonders from nebulas to exoplanets. The infinite universe captivates me - 
+                        its mysteries, celestial mechanics, and the search for extraterrestrial life.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 2. Music -->
+            <div class="interest-card music-card">
+                <div class="interest-icon">🎵</div>
+                <div class="interest-content">
+                    <h3 class="interest-title">World Music</h3>
+                    <p class="interest-description">
+                        Discovering musical gems across cultures - from K-pop to Fado, Afrobeat to Qawwali. 
+                        Each language carries unique rhythms and emotional textures that transcend borders.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 3. Psychology -->
+            <div class="interest-card psychology-card">
+                <div class="interest-icon">🧠</div>
+                <div class="interest-content">
+                    <h3 class="interest-title">Psychology</h3>
+                    <p class="interest-description">
+                        The human mind's complexities fascinate me - cognitive biases, emotional intelligence, 
+                        neuroplasticity, and the intersection of biology with behavior and mental processes.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 4. Science -->
+            <div class="interest-card science-card">
+                <div class="interest-icon">🔬</div>
+                <div class="interest-content">
+                    <h3 class="interest-title">Science</h3>
+                    <p class="interest-description">
+                        Passionate about scientific discovery across disciplines - quantum physics, marine biology, 
+                        materials science, and many more breakthrough technologies that push humanity forward.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 5. Tech -->
+            <div class="interest-card tech-card">
+                <div class="interest-icon">💻</div>
+                <div class="interest-content">
+                    <h3 class="interest-title">Technology</h3>
+                    <p class="interest-description">
+                        Enthralled by emerging tech - AI advancements, space technologies, renewable energy solutions, 
+                        and how innovation reshapes society and solves global challenges.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 6. Endless Discovery -->
+            <div class="interest-card discovery-card">
+                <div class="interest-icon">🔍</div>
+                <div class="interest-content">
+                    <h3 class="interest-title">Endless Discovery</h3>
+                    <p class="interest-description">
+                        My insatiable curiosity drives me to constantly learn - whether obscure historical facts, 
+                        cultural traditions, or cutting-edge research across all fields of human knowledge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
